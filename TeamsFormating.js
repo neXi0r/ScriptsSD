@@ -11,7 +11,7 @@
 // ==/UserScript==
 
 function TeamsText(event) {
-    let clip = 'P' + g_form.getValue('incident.priority') + ' - ' + g_form.getValue('sys_readonly.incident.number') + ' - ' + g_form.getValue('incident.short_description') + '\n\n' + 'Issue reported by: ' + 
+    let clip = 'P' + g_form.getValue('incident.priority') + ' - ' + g_form.getValue('sys_readonly.incident.number') + ' - ' + g_form.getValue('incident.short_description') + '\n\n' + 'Issue reported by: ' + g_form.getReference('caller_id').fullName);
 	navigator.clipboard.writeText(clip);
 }
 
