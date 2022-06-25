@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MS Teams Formating
 // @namespace    http://tampermonkey.net/
-// @version      0.1.2a
+// @version      0.1.3
 // @description  MS Teams SD formating button
 // @author       Alex 'neXi0r' Kielak
 // @match        https://qvcprod.service-now.com/incident.do?*
@@ -18,13 +18,16 @@ function TeamsText(event) {
 function TeamsText2(event) {
     let bridge = g_form.getValue('incident.u_webex');
     let bridgeText = '';
-    if (bridge != '') {bridgeText = '\nhttps://hsni.webex.com/join/' + bridge + ' has been open for the issue.'};
-    let clip = 'P' + g_form.getValue('incident.priority') + ' - ' + g_form.getValue('sys_readonly.incident.number') + ' - ' + g_form.getValue('incident.short_description') + '\n' + g_form.getValue('incident.u_additional_group_to_notify_nonedit') + ' has been paged.' + '\n' + 
+    let addGroup = document.getElementById('incident.u_additional_group_to_notify_nonedit').innerHTML;
+    if (bridge != '') {bridgeText = '\nhttps://hsni.webex.com/join/' + bridge + ' has been open for the issue.';};
+    let clip = 'P' + g_form.getValue('incident.priority') + ' - ' + g_form.getValue('sys_readonly.incident.number') + ' - ' + g_form.getValue('incident.short_description') + '\n' + addGroup + ' has been paged.' + bridgeText;
 	navigator.clipboard.writeText(clip);
 }
 
 function EBText(event) {
-    let clip = g_form.getValue('incident.u_additional_group_to_notify_nonedit') + ' has been paged.'
+    let addGroup = document.getElementById('incident.u_additional_group_to_notify_nonedit').innerHTML;
+    let clip = addGroup + ' has been paged.';
+    window.alert(g_form.getValue('incident.u_additional_group_to_notify_nonedit'));
 	navigator.clipboard.writeText(clip);
 }
 
