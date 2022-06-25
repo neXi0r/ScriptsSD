@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MS Teams Formating
 // @namespace    http://tampermonkey.net/
-// @version      0.1.1
+// @version      0.1
 // @description  MS Teams SD formating button
 // @author       Alex 'neXi0r' Kielak
 // @match        https://qvcprod.service-now.com/incident.do?*
@@ -16,7 +16,7 @@ function TeamsText(event) {
 }
 
 var priority_addons = document.querySelector("#element\\.incident\\.priority > div.col-xs-2.col-sm-3.col-lg-2.form-field-addons")
-var eb_addons = document.querySelector("#element\\.incident\\.u_everbridge_notification_sent > div.col-xs-2 col-sm-3 col-lg-2 form-field-addons")
+var eb_addons = document.querySelector("#element\\.incident\\.u_everbridge_notification_sent > div.col-xs-2.col-sm-3.col-lg-2.form-field-addons")
 
 priority_addons.innerHTML += '<button id="myButton_Teams" style="white-space: nowrap" type="button" title="" data-original-title="Copy TEAMS" aria-expanded="false">Teams Text</button>';
 eb_addons.innerHTML += '<button id="myButton_Teams2" style="white-space: nowrap" type="button" title="" data-original-title="Copy TEAMS" aria-expanded="false">Teams Text</button>';
