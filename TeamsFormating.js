@@ -19,9 +19,17 @@ function TeamsText2(event) {
     let bridge = g_form.getValue('incident.u_webex');
     let bridgeText = '';
     let addGroup = document.getElementById('incident.u_additional_group_to_notify_nonedit').innerHTML;
-    if (bridge != '') {bridgeText = '\nhttps://hsni.webex.com/join/' + bridge + ' has been open for the issue.';};
+    if (bridge != '') {bridgeText = '\nhttps://hsni.webex.com/join/' + bridge + ' has been opened for this issue.';};
     let clip = 'P' + g_form.getValue('incident.priority') + ' - ' + g_form.getValue('sys_readonly.incident.number') + ' - ' + g_form.getValue('incident.short_description') + '\n' + addGroup + ' has been paged.' + bridgeText;
 	navigator.clipboard.writeText(clip);
+}
+
+function EBmsg(event) {
+    // This is going to be EB msg auto formater Please investigate XX regarding YY. Requested by:
+}
+
+function EBmsg2(event) {
+    // This is going to be EB msg auto formater Please join toUpperCase(bridge) to investigate XXX Requested by:
 }
 
 function EBText(event) {
