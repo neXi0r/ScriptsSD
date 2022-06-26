@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MS Teams Formating
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3
+// @version      0.1.3a
 // @description  MS Teams SD formating button
 // @author       Alex 'neXi0r' Kielak
 // @match        https://qvcprod.service-now.com/incident.do?*
@@ -26,10 +26,14 @@ function TeamsText2(event) {
 
 function EBmsg(event) {
     // This is going to be EB msg auto formater Please investigate XX regarding YY. Requested by:
+	let clip = 'Please investigate: ' + g_form.getValue('sys_readonly.incident.number') + ' regarding: ' + g_form.getValue('incident.short_description') + '\nPage requested by: ';
+	navigator.clipboard.writeText(clip);
 }
 
 function EBmsg2(event) {
     // This is going to be EB msg auto formater Please join toUpperCase(bridge) to investigate XXX Requested by:
+	let bridge = g_form.getValue('incident.u_webex');
+	let clip = 'Please join ' + toUpperCase(bridge) + ' bridge to investigate: ' + g_form.getValue('sys_readonly.incident.number') + ' regarding: ' + g_form.getValue('incident.short_description') + '\nPage requested by: ';
 }
 
 function EBText(event) {
@@ -41,12 +45,17 @@ function EBText(event) {
 
 
 var priority_addons = document.querySelector("#element\\.incident\\.priority > div.col-xs-2.col-sm-3.col-lg-2.form-field-addons");
-var eb_addons = document.querySelector("#element\\.incident\\.u_everbridge_notification_sent > div.col-xs-2.col-sm-3.col-lg-2.form-field-addons");
+var eb_addonsTeams = document.querySelector("#element\\.incident\\.u_everbridge_notification_sent > div.col-xs-2.col-sm-3.col-lg-2.form-field-addons");
+var eb_addonsText = document.querySelector("#element\\.incident\\.u_market");
 
 priority_addons.innerHTML += '<button id="myButton_Teams" style="white-space: nowrap" type="button" title="" data-original-title="Copy TEAMS" aria-expanded="false">Teams Text</button>';
-eb_addons.innerHTML += '<button id="myButton_Teams2" style="white-space: nowrap" type="button" title="" data-original-title="Copy for teams" aria-expanded="false">TT</button>';
-eb_addons.innerHTML += '<button id="myButton_Teams3" style="white-space: nowrap" type="button" title="" data-original-title="Just XX has been paged. text." aria-expanded="false">EB</button>';
+eb_addonsTeams.innerHTML += '<button id="myButton_Teams2" style="white-space: nowrap" type="button" title="" data-original-title="Copy for teams" aria-expanded="false">TT</button>';
+eb_addonsTeams.innerHTML += '<button id="myButton_Teams3" style="white-space: nowrap" type="button" title="" data-original-title="Just XX has been paged. text." aria-expanded="false">EB</button>';
+eb_addonsText.innerHTML += '<button id="myButton_EB1" style="white-space: nowrap" type="button" title="" data-original-title="EB notification message" aria-expanded="false">NM</button>';
+eb_addonsText.innerHTML += '<button id="myButton_EB2" style="white-space: nowrap" type="button" title="" data-original-title="EB notification message and bridge" aria-expanded="false">NM+B</button>';
 
 document.querySelector("#myButton_Teams").addEventListener ("click", TeamsText , false);
 document.querySelector("#myButton_Teams2").addEventListener ("click", TeamsText2 , false);
 document.querySelector("#myButton_Teams3").addEventListener ("click", EBText , false);
+document.querySelector("#myButton_EB1").addEventListener ("click", EBmsg , false);
+document.querySelector("#myButton_EB2").addEventListener ("click", EBmsg2 , false);
