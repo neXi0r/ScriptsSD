@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MS Teams Formating
 // @namespace    http://tampermonkey.net/
-// @version      0.1.4
+// @version      0.1.4a
 // @description  MS Teams SD formating button
 // @author       Alex 'neXi0r' Kielak
 // @match        https://qvcprod.service-now.com/incident.do?*
@@ -19,6 +19,7 @@ function TeamsText2(event) {
     let bridge = g_form.getValue('incident.u_webex');
     let bridgeText = '';
     let addGroup = document.getElementById('incident.u_additional_group_to_notify_nonedit').innerHTML;
+	if (addGroup != '') {addGroup = g_form.getValue('sys_display.incident.assignment_group');};
     if (bridge != '') {bridgeText = '\nhttps://hsni.webex.com/join/' + bridge + ' has been opened for this issue.';};
     let clip = 'P' + g_form.getValue('incident.priority') + ' - ' + g_form.getValue('sys_readonly.incident.number') + ' - ' + g_form.getValue('incident.short_description') + '\n' + addGroup + ' has been paged.' + bridgeText;
 	navigator.clipboard.writeText(clip);
