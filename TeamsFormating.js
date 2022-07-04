@@ -10,10 +10,28 @@
 // @updateURL    https://raw.githubusercontent.com/neXi0r/ScriptsSD/Testing/TeamsFormating.js
 // ==/UserScript==
 
-function TeamsText(shiftPassthrough) {
-	if (shiftPassthrough.shiftKey) alert('o nje');
-    let clip = 'P' + g_form.getValue('incident.priority') + ' - ' + g_form.getValue('sys_readonly.incident.number') + ' - ' + g_form.getValue('incident.short_description') + '\n' + g_form.getValue('sys_display.incident.assignment_group') + ' has been paged.'
-	navigator.clipboard.writeText(clip);
+function copyToClip(str) {
+  function listener(e) {
+    e.clipboardData.setData("text/html", str);
+    e.clipboardData.setData("text/plain", str);
+    e.preventDefault();
+  }
+  document.addEventListener("copy", listener);
+  document.execCommand("copy");
+  document.removeEventListener("copy", listener);
+}
+
+function TeamsText(event) {
+    	if (event.shiftKey) {
+        let boldPart1 = 'P' + g_form.getValue('incident.priority') + ' - ' + g_form.getValue('sys_readonly.incident.number');
+        let boldPart2 = g_form.getValue('sys_display.incident.assignment_group');
+        let boldClip = boldPart1.bold() + ' - ' + g_form.getValue('incident.short_description') + '<br>' + boldPart2.bold() + ' has been paged.';
+        copyToClip(boldClip);
+    }
+    else{
+        let clip = 'P' + g_form.getValue('incident.priority') + ' - ' + g_form.getValue('sys_readonly.incident.number') + ' - ' + g_form.getValue('incident.short_description') + '\n' + g_form.getValue('sys_display.incident.assignment_group') + ' has been paged.';
+        navigator.clipboard.writeText(clip);
+    }
 }
 
 function TeamsText2(event) {
@@ -54,7 +72,7 @@ eb_addonsTeams.innerHTML += '<button id="myButton_Teams3" style="white-space: no
 eb_addonsText.innerHTML += '<button id="myButton_EB1" style="white-space: nowrap" type="button" title="" data-original-title="EB notification message" aria-expanded="false">NM</button>';
 eb_addonsText.innerHTML += '<button id="myButton_EB2" style="white-space: nowrap" type="button" title="" data-original-title="EB notification message with bridge" aria-expanded="false">NMB</button>';
 
-document.querySelector("#myButton_Teams").addEventListener ("click", TeamsText(shiftPassthrough) , false);
+document.querySelector("#myButton_Teams").addEventListener ("click", TeamsText , false);
 document.querySelector("#myButton_Teams2").addEventListener ("click", TeamsText2 , false);
 document.querySelector("#myButton_Teams3").addEventListener ("click", EBText , false);
 document.querySelector("#myButton_EB1").addEventListener ("click", EBmsg , false);
