@@ -1,13 +1,13 @@
 // ==UserScript==
-// @name         MS Teams Formating
+// @name         MS Teams Formating test branch
 // @namespace    http://tampermonkey.net/
 // @version      0.1.4b
 // @description  MS Teams SD formating button
 // @author       Alex 'neXi0r' Kielak
 // @match        https://qvcprod.service-now.com/incident.do?*
 // @grant        none
-// @downloadURL  https://raw.githubusercontent.com/neXi0r/ScriptsSD/main/TeamsFormating.js
-// @updateURL    https://raw.githubusercontent.com/neXi0r/ScriptsSD/main/TeamsFormating.js
+// @downloadURL  https://raw.githubusercontent.com/neXi0r/ScriptsSD/Testing/TeamsFormating.js
+// @updateURL    https://raw.githubusercontent.com/neXi0r/ScriptsSD/Testing/TeamsFormating.js
 // ==/UserScript==
 
 function TeamsText(shiftPassthrough) {
