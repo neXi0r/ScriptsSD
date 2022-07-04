@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MS Teams Formating
 // @namespace    http://tampermonkey.net/
-// @version      0.1.4a
+// @version      0.1.4b
 // @description  MS Teams SD formating button
 // @author       Alex 'neXi0r' Kielak
 // @match        https://qvcprod.service-now.com/incident.do?*
@@ -10,7 +10,8 @@
 // @updateURL    https://raw.githubusercontent.com/neXi0r/ScriptsSD/main/TeamsFormating.js
 // ==/UserScript==
 
-function TeamsText(event) {
+function TeamsText(shiftPassthrough) {
+	if (shiftPassthrough.shiftKey) alert('o nje');
     let clip = 'P' + g_form.getValue('incident.priority') + ' - ' + g_form.getValue('sys_readonly.incident.number') + ' - ' + g_form.getValue('incident.short_description') + '\n' + g_form.getValue('sys_display.incident.assignment_group') + ' has been paged.'
 	navigator.clipboard.writeText(clip);
 }
@@ -53,7 +54,7 @@ eb_addonsTeams.innerHTML += '<button id="myButton_Teams3" style="white-space: no
 eb_addonsText.innerHTML += '<button id="myButton_EB1" style="white-space: nowrap" type="button" title="" data-original-title="EB notification message" aria-expanded="false">NM</button>';
 eb_addonsText.innerHTML += '<button id="myButton_EB2" style="white-space: nowrap" type="button" title="" data-original-title="EB notification message with bridge" aria-expanded="false">NMB</button>';
 
-document.querySelector("#myButton_Teams").addEventListener ("click", TeamsText , false);
+document.querySelector("#myButton_Teams").addEventListener ("click", TeamsText(shiftPassthrough) , false);
 document.querySelector("#myButton_Teams2").addEventListener ("click", TeamsText2 , false);
 document.querySelector("#myButton_Teams3").addEventListener ("click", EBText , false);
 document.querySelector("#myButton_EB1").addEventListener ("click", EBmsg , false);
