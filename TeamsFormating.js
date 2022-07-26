@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MS Teams Formating
 // @namespace    http://tampermonkey.net/
-// @version      0.1.6
+// @version      0.1.7
 // @description  MS Teams SD formating button
 // @author       Alex 'neXi0r' Kielak
 // @match        https://qvcprod.service-now.com/incident.do?*
@@ -52,8 +52,14 @@ function EBmsg2(event) {
 
 function EBText(event) {
 	let addGroup = document.getElementById('incident.u_additional_group_to_notify_nonedit').innerHTML;
-	let clip = addGroup.bold() + ' has been paged.';
-	copyToClip(clip);
+	if (event.shiftKey){
+		let clip = addGroup.bold() + ' has been paged.';
+		copyToClip(clip);
+	}
+	else{
+		let clip = addGroup + ' has been paged.';
+		navigator.clipboard.writeText(clip);
+	}
 }
 
 
