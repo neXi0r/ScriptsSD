@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         MS Teams Formating
+// @name         MS Teams Testing
 // @namespace    http://tampermonkey.net/
 // @version      0.1.9
 // @description  MS Teams SD formating button
