@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MS Teams Formating
 // @namespace    http://tampermonkey.net/
-// @version      0.1.8
+// @version      0.1.9
 // @description  MS Teams SD formating button
 // @author       Alex 'neXi0r' Kielak
 // @match        https://qvcprod.service-now.com/incident.do?*
@@ -43,13 +43,13 @@ function TeamsText2(event) {
 }
 
 function EBmsg(event) {
-	let clip = 'Please investigate: ' + g_form.getValue('sys_readonly.incident.number') + ' regarding: ' + g_form.getValue('incident.short_description') + '\nPage requested by: ';
+	let clip = 'Please investigate: ' + g_form.getValue('sys_readonly.incident.number') + ' regarding: ' + g_form.getValue('incident.short_description') + ' issue reported by: ' + g_form.getValue('sys_display.incident.caller_id') + '\nPage requested by: ';
 	navigator.clipboard.writeText(clip);
 }
 
 function EBmsg2(event) {
 	let bridge = g_form.getValue('incident.u_webex');
-	let clip = 'Please join ' + bridge.toUpperCase() + ' bridge to investigate: ' + g_form.getValue('sys_readonly.incident.number') + ' regarding: ' + g_form.getValue('incident.short_description') + '\nPage requested by: ';
+	let clip = 'Please join ' + bridge.toUpperCase() + ' bridge to investigate: ' + g_form.getValue('sys_readonly.incident.number') + ' regarding: ' + g_form.getValue('incident.short_description') + ' issue reported by: ' + g_form.getValue('sys_display.incident.caller_id') + '\nPage requested by: ';
 	navigator.clipboard.writeText(clip);
 }
 
