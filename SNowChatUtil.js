@@ -6,8 +6,8 @@
 // @author       Alex 'neXi0r' Kielak
 // @include      /^https?://qvcprod\.service-now\.com/\$c\.do#*
 // @grant        GM_addStyle
-// @downloadURL  https://raw.githubusercontent.com/neXi0r/ScriptsSD/main/TeamsFormating.js
-// @updateURL    https://raw.githubusercontent.com/neXi0r/ScriptsSD/main/TeamsFormating.js
+// @downloadURL  https://raw.githubusercontent.com/neXi0r/ScriptsSD/main/SNowChatUtil.js
+// @updateURL    https://raw.githubusercontent.com/neXi0r/ScriptsSD/main/SNowChatUtil.js
 // ==/UserScript==
 /*--- Create a button in a container div.  It will be styled and
     positioned with CSS.
@@ -25,9 +25,16 @@ var text8 = 'nine';
 var text9 = 'ten';
 
 var zNode = document.createElement ('div');
-zNode.innerHTML = '<button id="myButton" type="button">'
-                + text1 +
-                '</button>';
+zNode.innerHTML = '<button id="myButton0" type="button">1</button>' +
+    '<button id="myButton1" type="button">2</button>' +
+    '<button id="myButton2" type="button">3</button>' +
+    '<button id="myButton3" type="button">4</button>' +
+    '<button id="myButton4" type="button">5</button>' +
+    '<button id="myButton5" type="button">6</button>' +
+    '<button id="myButton6" type="button">7</button>' +
+    '<button id="myButton7" type="button">8</button>' +
+    '<button id="myButton8" type="button">9</button>' +
+    '<button id="myButton9" type="button">10</button>' +;
 zNode.setAttribute ('id', 'myContainer');
 document.body.appendChild (zNode);
 
