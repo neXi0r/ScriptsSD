@@ -34,7 +34,7 @@ zNode.innerHTML = '<button id="myButton0" type="button">1</button>' +
     '<button id="myButton6" type="button">7</button>' +
     '<button id="myButton7" type="button">8</button>' +
     '<button id="myButton8" type="button">9</button>' +
-    '<button id="myButton9" type="button">10</button>' +;
+    '<button id="myButton9" type="button">10</button>';
 zNode.setAttribute ('id', 'myContainer');
 document.body.appendChild (zNode);
 
