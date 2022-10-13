@@ -12,10 +12,22 @@
 /*--- Create a button in a container div.  It will be styled and
     positioned with CSS.
 */
+
+var text0 = 'one';
+var text1 = 'two';
+var text2 = 'three';
+var text3 = 'four';
+var text4 = 'five';
+var text5 = 'six';
+var text6 = 'seven';
+var text7 = 'eight';
+var text8 = 'nine';
+var text9 = 'ten';
+
 var zNode = document.createElement ('div');
 zNode.innerHTML = '<button id="myButton" type="button">'
-                + 'Hehe</button>'
-                ;
+                + text1 +
+                '</button>';
 zNode.setAttribute ('id', 'myContainer');
 document.body.appendChild (zNode);
 
