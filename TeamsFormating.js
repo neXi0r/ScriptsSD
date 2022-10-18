@@ -69,12 +69,12 @@ function EBText(event) {
 	}
 }
 function teamsOnHold(event) {
-	let clip = 'Hello. I'm from Service Desk and I'm contacting you in regards to ' + g_form.getValue('sys_readonly.incident.number') + ' - ' + g_form.getValue('incident.short_description') + '.\n';
+	let clip = 'Hello. I\'m from Service Desk and I\'m contacting you in regards to ' + g_form.getValue('sys_readonly.incident.number') + ' - ' + g_form.getValue('incident.short_description') + '.\n';
 	navigator.clipboard.writeText(clip);
 }
 
 var priority_addons = document.querySelector("#element\\.incident\\.priority > div.col-xs-2.col-sm-3.col-lg-2.form-field-addons");
-var onHold_reachout = document.querySelector("#element\\.incident\\.priority > div.col-xs-10.col-sm-9.col-md-6.col-lg-5.form-field-addons");
+var onHold_reachout = document.querySelector("#element\\.incident\\.state > div.col-xs-2.col-sm-3.col-lg-2.form-field-addons");
 var eb_addonsTeams = document.querySelector("#element\\.incident\\.u_everbridge_notification_sent > div.col-xs-2.col-sm-3.col-lg-2.form-field-addons");
 var eb_addonsText = document.querySelector("#element\\.incident\\.u_market > div.col-xs-2.col-sm-3.col-lg-2.form-field-addons");
 
