@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SD SNow chat tool
 // @namespace    http://tampermonkey.net/
-// @version      0.0.1
+// @version      0.0.2
 // @description  Easy chat support utility tool
 // @author       Alex 'neXi0r' Kielak
 // @include      /^https?://qvcprod\.service-now\.com/\$c\.do#*
@@ -10,6 +10,7 @@
 // @updateURL    https://raw.githubusercontent.com/neXi0r/ScriptsSD/main/SNowChatUtil.js
 // ==/UserScript==
 
+// przyciski od 1 do 10
 var text0 = 'one';
 var text1 = 'two';
 var text2 = 'three';
@@ -20,7 +21,6 @@ var text6 = 'seven';
 var text7 = 'eight';
 var text8 = 'nine';
 var text9 = 'ten';
-
 function copyForChat(text){
     let clip = text;
 	navigator.clipboard.writeText(clip);
@@ -40,19 +40,17 @@ floatingdiv.innerHTML = '<button id="myButton0" type="button" title="' + text0 +
 floatingdiv.setAttribute ('id', 'myContainer');
 document.body.appendChild (floatingdiv);
 
-document.getElementById ("myButton0").addEventListener ("click", copyForChat(text0), false);
-document.getElementById ("myButton1").addEventListener ("click", copyForChat(text1), false);
-document.getElementById ("myButton2").addEventListener ("click", copyForChat(text2), false);
-document.getElementById ("myButton3").addEventListener ("click", copyForChat(text3), false);
-document.getElementById ("myButton4").addEventListener ("click", copyForChat(text4), false);
-document.getElementById ("myButton5").addEventListener ("click", copyForChat(text5), false);
-document.getElementById ("myButton6").addEventListener ("click", copyForChat(text6), false);
-document.getElementById ("myButton7").addEventListener ("click", copyForChat(text7), false);
-document.getElementById ("myButton8").addEventListener ("click", copyForChat(text8), false);
-document.getElementById ("myButton9").addEventListener ("click", copyForChat(text9), false);
+document.getElementById ("myButton0").addEventListener ("click", function(){copyForChat(text0)}, false);
+document.getElementById ("myButton1").addEventListener ("click", function(){copyForChat(text1)}, false);
+document.getElementById ("myButton2").addEventListener ("click", function(){copyForChat(text2)}, false);
+document.getElementById ("myButton3").addEventListener ("click", function(){copyForChat(text3)}, false);
+document.getElementById ("myButton4").addEventListener ("click", function(){copyForChat(text4)}, false);
+document.getElementById ("myButton5").addEventListener ("click", function(){copyForChat(text5)}, false);
+document.getElementById ("myButton6").addEventListener ("click", function(){copyForChat(text6)}, false);
+document.getElementById ("myButton7").addEventListener ("click", function(){copyForChat(text7)}, false);
+document.getElementById ("myButton8").addEventListener ("click", function(){copyForChat(text8)}, false);
+document.getElementById ("myButton9").addEventListener ("click", function(){copyForChat(text9)}, false);
 
-
-//--- Style our newly added elements using CSS.
 GM_addStyle ( `
     #myContainer {
         position:               absolute;
