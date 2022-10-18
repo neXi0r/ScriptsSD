@@ -80,7 +80,7 @@ var eb_addonsText = document.querySelector("#element\\.incident\\.u_market > div
 
 priority_addons.innerHTML += '<button id="myButton_Teams" style="white-space: nowrap" type="button" title="" data-original-title="Copy message for MS teams channel." aria-expanded="false">Copy MSG</button>';
 eb_addonsTeams.innerHTML += '<button id="myButton_Teams2" style="white-space: nowrap" type="button" title="" data-original-title="(Teams Text) Copy message for MS teams channel." aria-expanded="false">TT</button>';
-eb_addonsTeams.innerHTML += '<button id="myButton_Teams3" style="white-space: nowrap" type="button" title="" data-original-title="(EverBridge) Copy XX has been paged. message." aria-expanded="false">EB</button>';
+eb_addonsTeams.innerHTML += '<button id="myButton_Teams3" style="white-space: nowrap" type="button" title="" data-original-title="(EverBridge) Copy \'XX has been paged.\' message.\nCrtl click for Additional Individual" aria-expanded="false">EB</button>';
 eb_addonsText.innerHTML += '<button id="myButton_EB1" style="white-space: nowrap" type="button" title="" data-original-title="EB notification message" aria-expanded="false">NM</button>';
 eb_addonsText.innerHTML += '<button id="myButton_EB2" style="white-space: nowrap" type="button" title="" data-original-title="EB notification message with bridge" aria-expanded="false">NMB</button>';
 onHold_reachout.innerHTML += '<button id="myButton_TR" style="white-space: nowrap" type="button" title="" data-original-title="Copy teams reach out message." aria-expanded="false">TR</button>';
