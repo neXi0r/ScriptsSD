@@ -21,6 +21,7 @@ var text6 = 'seven';
 var text7 = 'eight';
 var text8 = 'nine';
 var text9 = 'ten';
+
 function copyForChat(text){
     let clip = text;
 	navigator.clipboard.writeText(clip);
