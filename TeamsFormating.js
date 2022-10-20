@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MS Teams Testing
 // @namespace    http://tampermonkey.net/
-// @version      0.2.0
+// @version      0.2.1
 // @description  MS Teams SD formating button
 // @author       Alex 'neXi0r' Kielak
 // @match        https://qvcprod.service-now.com/incident.do?*
@@ -69,7 +69,7 @@ function EBText(event) {
 	}
 }
 function teamsOnHold(event) {
-	let clip = 'Hello. I\'m from Service Desk and I\'m contacting you in regards to ' + g_form.getValue('sys_readonly.incident.number') + ' - ' + g_form.getValue('incident.short_description') + '.\n';
+	let clip = 'Hello. I\'m from IT Service Desk and I\'m contacting you regarding ' + g_form.getValue('sys_readonly.incident.number') + ' - ' + g_form.getValue('incident.short_description') + '.\nBefore we can proceed, we need you to reply with additional information:\n';
 	navigator.clipboard.writeText(clip);
 }
 
