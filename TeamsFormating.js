@@ -58,7 +58,7 @@ function EBmsg2(event) {
 function EBText(event) {
 	let addGroup = document.getElementById('incident.u_additional_group_to_notify_nonedit').innerHTML;
 	if (event.shiftKey){
-		let clip = 'https://hsni.webex.com/join/' + g_form.getValue('incident.u_webex') + ' has been paged.';
+		let clip = 'https://hsni.webex.com/join/' + g_form.getValue('incident.u_webex') + ' has been opened for this issue.';
 		navigator.clipboard.writeText(clip);
 	}
 	else if (event.ctrlKey){
