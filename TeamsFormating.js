@@ -26,6 +26,7 @@ function TeamsText(event) {
 	let boldPart2 = g_form.getValue('sys_display.incident.assignment_group');
 	let clip = boldPart1.bold() + ' - ' + g_form.getValue('incident.short_description') + '<br>' + boldPart2.bold() + ' has been paged.';
 	copyToClip(clip);
+	if (g_form.getValue('incident.priority') < 2) {alert('Remember to tag the OPS channel as this is a P1 INC!')};
 }
 
 function TeamsText2(event) {
@@ -40,6 +41,7 @@ function TeamsText2(event) {
 	};
 	let clip = boldPart.bold() + ' - ' + g_form.getValue('incident.short_description') + '<br>' + addGroup.bold() + ' has been paged.' + bridgeText;
 	copyToClip(clip);
+	if (g_form.getValue('incident.priority') < 2) {alert('Remember to tag the OPS channel as this is a P1 INC!')};
 }
 
 function EBmsg(event) {
@@ -56,8 +58,8 @@ function EBmsg2(event) {
 function EBText(event) {
 	let addGroup = document.getElementById('incident.u_additional_group_to_notify_nonedit').innerHTML;
 	if (event.shiftKey){
-		let clip = addGroup.bold() + ' has been paged.';
-		copyToClip(clip);
+		let clip = 'https://hsni.webex.com/join/' + g_form.getValue('incident.u_webex') + ' has been paged.';
+		navigator.clipboard.writeText(clip);
 	}
 	else if (event.ctrlKey){
 		let clip = document.getElementById('incident.u_notification_list_nonedit').innerHTML + ' has been paged.';
@@ -80,7 +82,7 @@ var eb_addonsText = document.querySelector("#element\\.incident\\.u_market > div
 
 priority_addons.innerHTML += '<button id="myButton_Teams" style="white-space: nowrap" type="button" title="" data-original-title="Copy message for MS teams channel." aria-expanded="false">Copy MSG</button>';
 eb_addonsTeams.innerHTML += '<button id="myButton_Teams2" style="white-space: nowrap" type="button" title="" data-original-title="(Teams Text) Copy message for MS teams channel." aria-expanded="false">TT</button>';
-eb_addonsTeams.innerHTML += '<button id="myButton_Teams3" style="white-space: nowrap" type="button" title="" data-original-title="(EverBridge) Copy \'XX has been paged.\' message.\nCrtl click for Additional Individual" aria-expanded="false">EB</button>';
+eb_addonsTeams.innerHTML += '<button id="myButton_Teams3" style="white-space: nowrap" type="button" title="" data-original-title="(EverBridge) Copy \'XX has been paged.\' message.\nShift click for just bridge address.\nCrtl click for Additional Individual" aria-expanded="false">EB</button>';
 eb_addonsText.innerHTML += '<button id="myButton_EB1" style="white-space: nowrap" type="button" title="" data-original-title="EB notification message" aria-expanded="false">NM</button>';
 eb_addonsText.innerHTML += '<button id="myButton_EB2" style="white-space: nowrap" type="button" title="" data-original-title="EB notification message with bridge" aria-expanded="false">NMB</button>';
 onHold_reachout.innerHTML += '<button id="myButton_TR" style="white-space: nowrap" type="button" title="" data-original-title="Copy teams reach out message." aria-expanded="false">TR</button>';
