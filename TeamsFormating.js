@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MS Teams Testing
 // @namespace    http://tampermonkey.net/
-// @version      0.3.2
+// @version      0.3.3
 // @description  MS Teams SD formating button
 // @author       Alex 'neXi0r' Kielak
 // @match        https://qvcprod.service-now.com/incident.do?*
@@ -120,9 +120,7 @@ webex_addons.innerHTML += '<button id="myButton_Teams2" style="white-space: nowr
 everbridge_notification_sent_addons.innerHTML += '<button id="myButton_Teams3" style="white-space: nowrap" type="button" title="" data-original-title="(EverBridge) Copy \'XX has been paged.\' message.\nShift click for just bridge address.\nCrtl click for Additional Individual" aria-expanded="false">Who was paged</button>';
 language_addons.innerHTML += '<button id="myButton_EB1" style="white-space: nowrap" type="button" title="" data-original-title="EB notification message" aria-expanded="false">Notification Message</button>';
 market_addons.innerHTML += '<button id="myButton_EB2" style="white-space: nowrap" type="button" title="" data-original-title="EB notification message with bridge" aria-expanded="false">Notification Message + Bridge</button>';
-
-on_behalf_of_addons.innerHTML += '<button id="myButton3" style="white-space: nowrap" type="button" title="" data-original-title="Copy User ID" aria-expanded="false">ID</button>';
-on_behalf_of_addons.innerHTML += '<button id="myButton_PSCMD" style="white-space: nowrap" type="button" title="" data-original-title="Copy QRG.ONE migration check PowerShell command" aria-expanded="false">QRG.ONE CHECK</button>';
+on_behalf_of_addons.innerHTML += '<button id="myButton3" style="white-space: nowrap" type="button" title="" data-original-title="Copy User ID" aria-expanded="false">ID</button><button id="myButton_PSCMD" style="white-space: nowrap" type="button" title="" data-original-title="Copy QRG.ONE migration check PowerShell command" aria-expanded="false">QRG.ONE CHECK</button>';
 
 caller_addons.innerHTML += '<button id="myButton2" style="white-space: nowrap" type="button" title="" data-original-title="Copy User ID" aria-expanded="false">ID</button>';
 assignedTo_addons.innerHTML = assignedTo_addons.innerHTML+'<button class="form_action_button header action_context btn btn-default" id="personal1" style="white-space: nowrap" type="button" title="" value="sysverb_update_and_stay" id="sysverb_update_and_stay" data-action-name="sysverb_update_and_stay"  name="not_important" data-original-title="Assign to yourself" aria-expanded="false">ME</button>';
