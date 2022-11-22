@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MS Teams Testing
 // @namespace    http://tampermonkey.net/
-// @version      0.3.1
+// @version      0.3.2
 // @description  MS Teams SD formating button
 // @author       Alex 'neXi0r' Kielak
 // @match        https://qvcprod.service-now.com/incident.do?*
@@ -77,7 +77,7 @@ function teamsOnHold(event) {
 }
 
 function PScmd_copy(event) {
-    let clip = 'get-aduser -Identity ' + g_form.getReference('caller_id').user_name + ' -Server qrg.one -Properties homepostaladdress';
+    let clip = 'get-aduser -Identity ' + g_form.getReference('u_on_behalf_of').user_name + ' -Server qrg.one -Properties homepostaladdress';
     navigator.clipboard.writeText(clip);
 }
 
@@ -92,6 +92,12 @@ function ME_button(event) {
 function ID_Button(event) {
     let tempButton = $('myButton2');
     navigator.clipboard.writeText(g_form.getReference('caller_id').user_name);
+    tempButton.innerHTML = 'C';
+    setTimeout(function(){ tempButton.innerHTML= "ID"; }, 1000);
+}
+function ID_Button2(event) {
+    let tempButton = $('myButton2');
+    navigator.clipboard.writeText(g_form.getReference('u_on_behalf_of').user_name);
     tempButton.innerHTML = 'C';
     setTimeout(function(){ tempButton.innerHTML= "ID"; }, 1000);
 }
@@ -114,6 +120,8 @@ webex_addons.innerHTML += '<button id="myButton_Teams2" style="white-space: nowr
 everbridge_notification_sent_addons.innerHTML += '<button id="myButton_Teams3" style="white-space: nowrap" type="button" title="" data-original-title="(EverBridge) Copy \'XX has been paged.\' message.\nShift click for just bridge address.\nCrtl click for Additional Individual" aria-expanded="false">Who was paged</button>';
 language_addons.innerHTML += '<button id="myButton_EB1" style="white-space: nowrap" type="button" title="" data-original-title="EB notification message" aria-expanded="false">Notification Message</button>';
 market_addons.innerHTML += '<button id="myButton_EB2" style="white-space: nowrap" type="button" title="" data-original-title="EB notification message with bridge" aria-expanded="false">Notification Message + Bridge</button>';
+
+on_behalf_of_addons.innerHTML += '<button id="myButton3" style="white-space: nowrap" type="button" title="" data-original-title="Copy User ID" aria-expanded="false">ID</button>';
 on_behalf_of_addons.innerHTML += '<button id="myButton_PSCMD" style="white-space: nowrap" type="button" title="" data-original-title="Copy QRG.ONE migration check PowerShell command" aria-expanded="false">QRG.ONE CHECK</button>';
 
 caller_addons.innerHTML += '<button id="myButton2" style="white-space: nowrap" type="button" title="" data-original-title="Copy User ID" aria-expanded="false">ID</button>';
@@ -127,6 +135,7 @@ document.querySelector("#myButton_EB1").addEventListener ("click", EBmsg , false
 document.querySelector("#myButton_EB2").addEventListener ("click", EBmsg2 , false);
 document.querySelector("#myButton_reachout").addEventListener ("click", teamsOnHold , false);
 document.querySelector("#myButton_PSCMD").addEventListener ("click", PScmd_copy , false);
+document.querySelector("#myButton3").addEventListener ("click", ID_Button2 , false);
 
 document.querySelector("#myButton2").addEventListener ("click", ID_Button , false);
 document.querySelector("#personal1").addEventListener ("click", ME_button , false);
