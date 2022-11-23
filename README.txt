@@ -1,3 +1,6 @@
+0.3.0 - Reworked labels and locations of buttons for them to be easier to use and easier to understand.
+      - Added 'QRG.ONE check' button, it copies PowerShell command for you to check if user was migrated or not.
+      - Merged 'ID' and 'ME' buttons created by Jakub Michalek into my script.
 0.2.0 - Two alternate options for EB button were added
           SHIFT click + EB - copies bridge link
           CRTL click + EB - copies Additional Individual To Notify
