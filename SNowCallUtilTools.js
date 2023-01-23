@@ -16,7 +16,7 @@ function ID_Button(event) {
     navigator.clipboard.writeText(g_form.getReference('u_service_recipient').user_name);
     tempButton.innerHTML = 'C';
     setTimeout(function(){ tempButton.innerHTML= "ID"; }, 1000);
-
+}
 function PS_button(event) {
     let clip = 'get-aduser -Identity ' + g_form.getReference('u_service_recipient').user_name + ' -Server qrg.one -Properties homepostaladdress';
     navigator.clipboard.writeText(clip);
@@ -27,7 +27,7 @@ function ID_Button2(event) {
     navigator.clipboard.writeText(g_form.getReference('new_call.caller').user_name);
     tempButton.innerHTML = 'C';
     setTimeout(function(){ tempButton.innerHTML= "ID"; }, 1000);
-
+}
 function PS_button2(event) {
     let clip = 'get-aduser -Identity ' + g_form.getReference('new_call.caller').user_name + ' -Server qrg.one -Properties homepostaladdress';
     navigator.clipboard.writeText(clip);
@@ -35,14 +35,13 @@ function PS_button2(event) {
 
 
 var caller_addons = document.getElementById("viewr.new_call.u_service_recipient").parentElement;
-var caller_addons2 = document.getElementById("viewr.new_call.new_call.caller").parentElement;
+var caller_addons2 = document.getElementById("viewr.new_call.caller").parentElement;
 
 caller_addons.innerHTML += '<button id="id_button_" style="white-space: nowrap" type="button" title="" data-original-title="Copy userID" aria-expanded="false">ID</button>';
 caller_addons.innerHTML += '<button id="ps_button_" style="white-space: nowrap" type="button" title="" data-original-title="Copy QRG PS" aria-expanded="false">QRG CHECK</button>';
 
 caller_addons2.innerHTML += '<button id="id_button__" style="white-space: nowrap" type="button" title="" data-original-title="Copy userID" aria-expanded="false">ID</button>';
 caller_addons2.innerHTML += '<button id="ps_button__" style="white-space: nowrap" type="button" title="" data-original-title="Copy QRG PS" aria-expanded="false">QRG CHECK</button>';
-
 
 document.querySelector("#id_button_").addEventListener ("click", ID_Button , false);
 document.querySelector("#ps_button_").addEventListener ("click", PS_button , false);
