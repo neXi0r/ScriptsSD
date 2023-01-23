@@ -24,12 +24,12 @@ function PS_button(event) {
 
 function ID_Button2(event) {
     let tempButton = $('id_button_');
-    navigator.clipboard.writeText(g_form.getReference('new_call.caller').user_name);
+    navigator.clipboard.writeText(g_form.getReference('caller').user_name);
     tempButton.innerHTML = 'C';
     setTimeout(function(){ tempButton.innerHTML= "ID"; }, 1000);
 }
 function PS_button2(event) {
-    let clip = 'get-aduser -Identity ' + g_form.getReference('new_call.caller').user_name + ' -Server qrg.one -Properties homepostaladdress';
+    let clip = 'get-aduser -Identity ' + g_form.getReference('caller').user_name + ' -Server qrg.one -Properties homepostaladdress';
     navigator.clipboard.writeText(clip);
 }
 
