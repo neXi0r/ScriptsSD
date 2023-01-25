@@ -77,7 +77,7 @@ function EBText(event) {
 }
 
 function teamsOnHold(event) {
-	let clip = 'Hello. I\'m from IT Service Desk and I\'m contacting you regarding ' + g_form.getValue('sys_readonly.incident.number') + ' - ' + g_form.getValue('incident.short_description') + '.\nBefore we proceed, please provide additional information:\n';
+	let clip = msgPart1 + g_form.getValue('sys_readonly.incident.number') + ' - ' + g_form.getValue('incident.short_description') + msgPart2;
 	navigator.clipboard.writeText(clip);
 }
 
