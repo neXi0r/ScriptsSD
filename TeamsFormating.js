@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MS Teams Testing
 // @namespace    http://tampermonkey.net/
-// @version      0.3.3
+// @version      0.3.4
 // @description  MS Teams SD formating button
 // @author       Alex 'neXi0r' Kielak
 // @match        https://qvcprod.service-now.com/incident.do?*
@@ -9,6 +9,11 @@
 // @downloadURL  https://raw.githubusercontent.com/neXi0r/ScriptsSD/Testing/TeamsFormating.js
 // @updateURL    https://raw.githubusercontent.com/neXi0r/ScriptsSD/Testing/TeamsFormating.js
 // ==/UserScript==
+
+// \' - needed to use ' in a sentence. \n - new line.
+// Please leave last last character of Part1 and first character of Part2 unchanged. format is "Part1 INC# - shortDesc. - Part2"
+var msgPart1 = 'Hello. I\'m from IT Service Desk and I\'m contacting you regarding ';
+var msgPart2 = '.\nBefore we proceed, please provide additional information:\n';
 
 function copyToClip(str) {
 	function listener(e) {
