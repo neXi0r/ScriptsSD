@@ -11,7 +11,7 @@
 // ==/UserScript==
 
 // \' - needed to use ' in a sentence. \n - new line.
-// Please leave last last character of Part1 and first character of Part2 unchanged. format is "Part1 INC# - shortDesc. - Part2"
+// Please leave last last character of Part1 and first character of Part2 unchanged. format is "Part1INC# - shortDescPart2"
 var msgPart1 = 'Hello. I\'m from IT Service Desk and I\'m contacting you regarding ';
 var msgPart2 = '.\nBefore we proceed, please provide additional information:\n';
 
