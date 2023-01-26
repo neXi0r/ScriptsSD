@@ -86,6 +86,14 @@ function PScmd_copy(event) {
     navigator.clipboard.writeText(clip);
 }
 
+function Retek_Magic(event) {
+    g_form.setValue('incident.category',"Data");
+    g_form.setValue('incident.subcategory',"Other");
+    g_form.setValue('incident.business_service',"Retek 7");
+    g_form.setValue('incident.cmdb_ci',"Retek 7");
+    g_form.setValue('incident.close_code',"Solved");
+    g_form.setValue('incident.close_notes',"Item successfully republished.");
+}
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function ME_button(event) {
     g_form.setValue('incident.assigned_to',g_user.userID, g_user.fullName);
@@ -113,11 +121,11 @@ var webex_addons = document.querySelector("#element\\.incident\\.u_webex > div.c
 var everbridge_notification_sent_addons = document.querySelector("#element\\.incident\\.u_everbridge_notification_sent > div.col-xs-2.col-sm-3.col-lg-2.form-field-addons");
 var language_addons = document.querySelector("#element\\.incident\\.u_language > div.col-xs-2.col-sm-3.col-lg-2.form-field-addons");
 var market_addons = document.querySelector("#element\\.incident\\.u_market > div.col-xs-2.col-sm-3.col-lg-2.form-field-addons");
+var close_note_addons = document.querySelector("#element\\.incident\\.close_code > div.col-xs-2.col-sm-3.col-lg-2.form-field-addons");
 var on_behalf_of_addons = document.getElementById("viewr.incident.u_on_behalf_of").parentElement;
 
 var caller_addons = document.getElementById("viewr.incident.caller_id").parentElement;
 var assignedTo_addons = document.getElementById("viewr.incident.assigned_to").parentElement;
-
 
 priority_addons.innerHTML += '<button id="myButton_Teams1" style="white-space: nowrap" type="button" title="" data-original-title="Copy message for MS teams OPS-SD channel." aria-expanded="false">OPS chat MSG</button>';
 state_addons.innerHTML += '<button id="myButton_reachout" style="white-space: nowrap" type="button" title="" data-original-title="Copy teams reach out message." aria-expanded="false">Reach out</button>';
@@ -126,6 +134,10 @@ everbridge_notification_sent_addons.innerHTML += '<button id="myButton_Teams3" s
 language_addons.innerHTML += '<button id="myButton_EB1" style="white-space: nowrap" type="button" title="" data-original-title="EB notification message" aria-expanded="false">Notification Message</button>';
 market_addons.innerHTML += '<button id="myButton_EB2" style="white-space: nowrap" type="button" title="" data-original-title="EB notification message with bridge" aria-expanded="false">Notification Message + Bridge</button>';
 on_behalf_of_addons.innerHTML += '<button id="myButton3" style="white-space: nowrap" type="button" title="" data-original-title="Copy User ID" aria-expanded="false">ID</button><button id="myButton_PSCMD" style="white-space: nowrap" type="button" title="" data-original-title="Copy QRG.ONE migration check PowerShell command" aria-expanded="false">QRG.ONE CHECK</button>';
+
+if(g_form.getValue('incident.short_description')=='Republish an Item in Retek'){
+close_note_addons.innerHTML += '<button id="myButton_Retek" style="white-space: nowrap" type="button" title="" data-original-title="Retek magic" aria-expanded="false">Retek</button>';
+}
 
 caller_addons.innerHTML += '<button id="myButton2" style="white-space: nowrap" type="button" title="" data-original-title="Copy User ID" aria-expanded="false">ID</button>';
 assignedTo_addons.innerHTML = assignedTo_addons.innerHTML+'<button class="form_action_button header action_context btn btn-default" id="personal1" style="white-space: nowrap" type="button" title="" value="sysverb_update_and_stay" id="sysverb_update_and_stay" data-action-name="sysverb_update_and_stay"  name="not_important" data-original-title="Assign to yourself" aria-expanded="false">ME</button>';
@@ -139,6 +151,7 @@ document.querySelector("#myButton_EB2").addEventListener ("click", EBmsg2 , fals
 document.querySelector("#myButton_reachout").addEventListener ("click", teamsOnHold , false);
 document.querySelector("#myButton_PSCMD").addEventListener ("click", PScmd_copy , false);
 document.querySelector("#myButton3").addEventListener ("click", ID_Button2 , false);
+document.querySelector("#myButton_Retek").addEventListener ("click", Retek_Magic , false);
 
 document.querySelector("#myButton2").addEventListener ("click", ID_Button , false);
 document.querySelector("#personal1").addEventListener ("click", ME_button , false);
