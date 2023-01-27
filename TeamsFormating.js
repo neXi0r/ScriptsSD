@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         MS Teams Testing
+// @name         MS Teams Testing 2222
 // @namespace    http://tampermonkey.net/
 // @version      0.3.4
 // @description  MS Teams SD formating button
@@ -11,7 +11,7 @@
 // ==/UserScript==
 
 // \' - needed to use ' in a sentence. \n - new line.
-// Please leave last last character of Part1 and first character of Part2 unchanged. format is "Part1INC# - shortDescPart2"
+// Please leave last last character of Part1 and first character of Part2 unchanged. format is "Part1 INC# - shortDesc. - Part2"
 var msgPart1 = 'Hello. I\'m from IT Service Desk and I\'m contacting you regarding ';
 var msgPart2 = '.\nBefore we proceed, please provide additional information:\n';
 
@@ -109,7 +109,7 @@ function ID_Button(event) {
     setTimeout(function(){ tempButton.innerHTML= "ID"; }, 1000);
 }
 function ID_Button2(event) {
-    let tempButton = $('myButton2');
+    let tempButton = $('myButton3');
     navigator.clipboard.writeText(g_form.getReference('u_on_behalf_of').user_name);
     tempButton.innerHTML = 'C';
     setTimeout(function(){ tempButton.innerHTML= "ID"; }, 1000);
@@ -137,8 +137,8 @@ on_behalf_of_addons.innerHTML += '<button id="myButton3" style="white-space: now
 
 if(g_form.getValue('incident.short_description')=='Republish an Item in Retek'){
 close_note_addons.innerHTML += '<button id="myButton_Retek" style="white-space: nowrap" type="button" title="" data-original-title="Retek magic" aria-expanded="false">Retek</button>';
+document.querySelector("#myButton_Retek").addEventListener ("click", Retek_Magic , false);
 }
-
 caller_addons.innerHTML += '<button id="myButton2" style="white-space: nowrap" type="button" title="" data-original-title="Copy User ID" aria-expanded="false">ID</button>';
 assignedTo_addons.innerHTML = assignedTo_addons.innerHTML+'<button class="form_action_button header action_context btn btn-default" id="personal1" style="white-space: nowrap" type="button" title="" value="sysverb_update_and_stay" id="sysverb_update_and_stay" data-action-name="sysverb_update_and_stay"  name="not_important" data-original-title="Assign to yourself" aria-expanded="false">ME</button>';
 
@@ -150,8 +150,7 @@ document.querySelector("#myButton_EB1").addEventListener ("click", EBmsg , false
 document.querySelector("#myButton_EB2").addEventListener ("click", EBmsg2 , false);
 document.querySelector("#myButton_reachout").addEventListener ("click", teamsOnHold , false);
 document.querySelector("#myButton_PSCMD").addEventListener ("click", PScmd_copy , false);
-document.querySelector("#myButton3").addEventListener ("click", ID_Button2 , false);
-document.querySelector("#myButton_Retek").addEventListener ("click", Retek_Magic , false);
 
 document.querySelector("#myButton2").addEventListener ("click", ID_Button , false);
 document.querySelector("#personal1").addEventListener ("click", ME_button , false);
+document.querySelector("#myButton3").addEventListener ("click", ID_Button2 , false);
