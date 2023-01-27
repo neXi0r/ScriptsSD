@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MS Teams Testing 2222
 // @namespace    http://tampermonkey.net/
-// @version      0.3.5
+// @version      0.3.4
 // @description  MS Teams SD formating button
 // @author       Alex 'neXi0r' Kielak
 // @match        https://qvcprod.service-now.com/incident.do?*
@@ -78,6 +78,9 @@ function EBText(event) {
 
 function teamsOnHold(event) {
 	let clip = msgPart1 + g_form.getValue('sys_readonly.incident.number') + ' - ' + g_form.getValue('incident.short_description') + msgPart2;
+	if (event.shiftKey) {
+        	clip += g_form.getValue('u_on_hold_reason_details');
+	}
 	navigator.clipboard.writeText(clip);
 }
 
@@ -128,7 +131,7 @@ var caller_addons = document.getElementById("viewr.incident.caller_id").parentEl
 var assignedTo_addons = document.getElementById("viewr.incident.assigned_to").parentElement;
 
 priority_addons.innerHTML += '<button id="myButton_Teams1" style="white-space: nowrap" type="button" title="" data-original-title="Copy message for MS teams OPS-SD channel." aria-expanded="false">OPS chat MSG</button>';
-state_addons.innerHTML += '<button id="myButton_reachout" style="white-space: nowrap" type="button" title="" data-original-title="Copy teams reach out message." aria-expanded="false">Reach out</button>';
+state_addons.innerHTML += '<button id="myButton_reachout" style="white-space: nowrap" type="button" title="" data-original-title="Copy teams reach out message.\nShift click to include On Hold Reason" aria-expanded="false">Reach out</button>';
 webex_addons.innerHTML += '<button id="myButton_Teams2" style="white-space: nowrap" type="button" title="" data-original-title="Copy message for MS teams OPS-SD channel." aria-expanded="false">OPS chat MSG</button>';
 everbridge_notification_sent_addons.innerHTML += '<button id="myButton_Teams3" style="white-space: nowrap" type="button" title="" data-original-title="Copy \'XX has been paged.\' message.\nShift click for just bridge address.\nCrtl click for Additional Individual" aria-expanded="false">Who was paged</button>';
 language_addons.innerHTML += '<button id="myButton_EB1" style="white-space: nowrap" type="button" title="" data-original-title="EB notification message" aria-expanded="false">Notification Message</button>';
