@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         MS Teams Testing 2222
+// @name         MS Teams Testing
 // @namespace    http://tampermonkey.net/
-// @version      0.3.4
+// @version      0.3.5
 // @description  MS Teams SD formating button
 // @author       Alex 'neXi0r' Kielak
 // @match        https://qvcprod.service-now.com/incident.do?*
