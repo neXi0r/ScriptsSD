@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MS Teams Testing
 // @namespace    http://tampermonkey.net/
-// @version      0.3.5
+// @version      0.3.6
 // @description  MS Teams SD formating button
 // @author       Alex 'neXi0r' Kielak
 // @match        https://qvcprod.service-now.com/incident.do?*
@@ -92,8 +92,8 @@ function PScmd_copy(event) {
 function Retek_Magic(event) {
     g_form.setValue('incident.category',"Data");
     g_form.setValue('incident.subcategory',"Other");
-    g_form.setValue('incident.business_service',"Retek 7");
-    g_form.setValue('incident.cmdb_ci',"Retek 7");
+    g_form.setValue('incident.business_service','4d1f6069db18f380ec8dfdb61d961938', "Retek 7");
+    g_form.setValue('incident.cmdb_ci', '4d1f6069db18f380ec8dfdb61d961938', "Retek 7");
     g_form.setValue('incident.close_code',"Solved");
     g_form.setValue('incident.close_notes',"Item successfully republished.");
 }
