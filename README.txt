@@ -1,3 +1,6 @@
+0.3.1 - Added option to edit 'Reach out' message (requires editing the code)
+      - Shift click 'Reach out' button copies 'On hold reason' as well.
+      - New 'Retek' button (fills out Retek republish INC's)
 0.3.0 - Reworked labels and locations of buttons for them to be easier to use and easier to understand.
       - Added 'QRG.ONE check' button, it copies PowerShell command for you to check if user was migrated or not.
       - Merged 'ID' and 'ME' buttons created by Jakub Michalek into my script.
