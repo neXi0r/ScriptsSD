@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MS Teams Testing
 // @namespace    http://tampermonkey.net/
-// @version      0.3.6
+// @version      0.3.7
 // @description  MS Teams SD formating button
 // @author       Alex 'neXi0r' Kielak
 // @match        https://qvcprod.service-now.com/incident.do?*
@@ -11,7 +11,7 @@
 // ==/UserScript==
 
 // \' - needed to use ' in a sentence. \n - new line.
-// Please leave last last character of Part1 and first character of Part2 unchanged. format is "Part1 INC# - shortDesc. - Part2"
+// Please leave last character of Part1 and first character of Part2 unchanged. format is "Part1INC# - shortDesc.Part2"
 var msgPart1 = 'Hello. I\'m from IT Service Desk and I\'m contacting you regarding ';
 var msgPart2 = '.\nBefore we proceed, please provide additional information:\n';
 
@@ -35,14 +35,17 @@ function TeamsText(event) {
 }
 
 function TeamsText2(event) {
-	let bridge = g_form.getValue('incident.u_webex');
+	let bridge = g_form.getValue('incident.u_webex').innerHTML;
 	let bridgeText = '';
 	let addGroup = document.getElementById('incident.u_additional_group_to_notify_nonedit').innerHTML;
 	let boldPart = 'P' + g_form.getValue('incident.priority') + ' - ' + g_form.getValue('sys_readonly.incident.number');
 	if (addGroup == '') {addGroup = g_form.getValue('sys_display.incident.assignment_group');};
 	if (bridge != '') {
+		/*
 		let bridgeLink = 'https://hsni.webex.com/join/' + bridge;
 		bridgeText = '<br><a href = "' + bridgeLink + '">' + bridgeLink + '</a>' + ' has been opened for this issue.';
+		*/
+		
 	};
 	let clip = boldPart.bold() + ' - ' + g_form.getValue('incident.short_description') + '<br>' + addGroup.bold() + ' has been paged.' + bridgeText;
 	copyToClip(clip);
@@ -55,7 +58,7 @@ function EBmsg(event) {
 }
 
 function EBmsg2(event) {
-	let bridge = g_form.getValue('incident.u_webex');
+	let bridge = g_form.getValue('incident.u_webex').innerHTML;
 	let clip = 'Please join ' + bridge.toUpperCase() + ' bridge to investigate: ' + g_form.getValue('sys_readonly.incident.number') + ' regarding: ' + g_form.getValue('incident.short_description') + ' issue reported by: ' + g_form.getValue('sys_display.incident.caller_id') + '\nPage requested by: ';
 	navigator.clipboard.writeText(clip);
 }
@@ -139,7 +142,7 @@ market_addons.innerHTML += '<button id="myButton_EB2" style="white-space: nowrap
 on_behalf_of_addons.innerHTML += '<button id="myButton3" style="white-space: nowrap" type="button" title="" data-original-title="Copy User ID" aria-expanded="false">ID</button><button id="myButton_PSCMD" style="white-space: nowrap" type="button" title="" data-original-title="Copy QRG.ONE migration check PowerShell command" aria-expanded="false">QRG.ONE CHECK</button>';
 
 if(g_form.getValue('incident.short_description')=='Republish an Item in Retek'){
-close_note_addons.innerHTML += '<button id="myButton_Retek" style="white-space: nowrap" type="button" title="" data-original-title="Retek magic" aria-expanded="false">Retek</button>';
+close_note_addons.innerHTML += '<button id="myButton_Retek" style="white-space: nowrap" type="button" title="" data-original-title="Fills out the INC for Retek republish tickets." aria-expanded="false">Retek</button>';
 document.querySelector("#myButton_Retek").addEventListener ("click", Retek_Magic , false);
 }
 caller_addons.innerHTML += '<button id="myButton2" style="white-space: nowrap" type="button" title="" data-original-title="Copy User ID" aria-expanded="false">ID</button>';
