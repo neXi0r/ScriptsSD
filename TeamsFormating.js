@@ -35,14 +35,22 @@ function TeamsText(event) {
 }
 
 function TeamsText2(event) {
-	let bridge = g_form.getValue('incident.u_webex');
+	var bridgeSelect = document.getElementById("incident.u_webex");
+	var selectedText = bridgeSelect.options[bridgeSelect.selectedIndex].text;
 	let bridgeText = '';
 	let addGroup = document.getElementById('incident.u_additional_group_to_notify_nonedit').innerHTML;
 	let boldPart = 'P' + g_form.getValue('incident.priority') + ' - ' + g_form.getValue('sys_readonly.incident.number');
 	if (addGroup == '') {addGroup = g_form.getValue('sys_display.incident.assignment_group');};
-	if (bridge != '') {
-		let bridgeLink = 'https://hsni.webex.com/join/' + bridge;
-		bridgeText = '<br><a href = "' + bridgeLink + '">' + bridgeLink + '</a>' + ' has been opened for this issue.';
+	if (g_form.getValue('incident.u_webex') != '') {
+		let bridgeLink = '';
+		if(selectedText == "ALPHA - Webex" || selectedText == "BRAVO - Webex" || selectedText == "CHARLIE - Webex" || selectedText == "Delta - Webex" || selectedText == "ECHO - Webex" || selectedText == "FOXTROT - Webex" || selectedText == "GOLF - Webex" || selectedText == "HOTEL - Webex" || selectedText == "INDIA - Webex" || selectedText == "JULIET - Webex" || selectedText == "KILO - Webex" || selectedText == "LIMA - Webex" || selectedText == "MIKE - Webex" || selectedText == "NOVEMBER - Webex" || selectedText == "OSCAR - Webex" || selectedText == "PAPA - Webex" || selectedText == "QUEBEC - Webex" || selectedText == "SIERRA - Webex" || selectedText == "TANGO - Webex" || selectedText == "UNIFORM - Webex" || selectedText == "VICTOR - Webex" || selectedText == "WHISKEY - Webex" || selectedText == "XRAY - Webex" || selectedText == "YANKEE - Webex" || selectedText == "ZULU - Webex"){
+			
+			bridgeText = '<br>' + selectedText + ' has been opened for this issue.<br>' + g_form.getValue('incident.u_webex') + '';
+		}
+		else{
+			bridgeLink = g_form.getValue('incident.u_webex');
+			bridgeText = '<br>' + selectedText.bold() + ' has been opened for this issue.<br><a href = "' + bridgeLink + '">' + bridgeLink + '</a>' + '';
+		}
 	};
 	let clip = boldPart.bold() + ' - ' + g_form.getValue('incident.short_description') + '<br>' + addGroup.bold() + ' has been paged.' + bridgeText;
 	copyToClip(clip);
@@ -55,15 +63,18 @@ function EBmsg(event) {
 }
 
 function EBmsg2(event) {
-	let bridge = g_form.getValue('incident.u_webex');
-	let clip = 'Please join ' + bridge.toUpperCase() + ' bridge to investigate: ' + g_form.getValue('sys_readonly.incident.number') + ' regarding: ' + g_form.getValue('incident.short_description') + ' issue reported by: ' + g_form.getValue('sys_display.incident.caller_id') + '\nPage requested by: ';
+	var bridgeSelect = document.getElementById("incident.u_webex");
+	var selectedText = bridgeSelect.options[bridgeSelect.selectedIndex].text;
+	let clip = 'Please join ' + selectedText.toUpperCase() + ' bridge to investigate: ' + g_form.getValue('sys_readonly.incident.number') + ' regarding: ' + g_form.getValue('incident.short_description') + ' issue reported by: ' + g_form.getValue('sys_display.incident.caller_id') + '\nPage requested by: ';
 	navigator.clipboard.writeText(clip);
 }
 
 function EBText(event) {
+	var bridgeSelect = document.getElementById("incident.u_webex");
+	var selectedText = bridgeSelect.options[bridgeSelect.selectedIndex].text;
 	let addGroup = document.getElementById('incident.u_additional_group_to_notify_nonedit').innerHTML;
 	if (event.shiftKey){
-		let clip = 'https://hsni.webex.com/join/' + g_form.getValue('incident.u_webex') + ' has been opened for this issue.';
+		let clip = selectedText + ' has been opened for this issue.\n' + g_form.getValue('incident.u_webex');
 		navigator.clipboard.writeText(clip);
 	}
 	else if (event.ctrlKey){
