@@ -45,7 +45,7 @@ function TeamsText2(event) {
 		let bridgeLink = '';
 		if(selectedText == "ALPHA - Webex" || selectedText == "BRAVO - Webex" || selectedText == "CHARLIE - Webex" || selectedText == "Delta - Webex" || selectedText == "ECHO - Webex" || selectedText == "FOXTROT - Webex" || selectedText == "GOLF - Webex" || selectedText == "HOTEL - Webex" || selectedText == "INDIA - Webex" || selectedText == "JULIET - Webex" || selectedText == "KILO - Webex" || selectedText == "LIMA - Webex" || selectedText == "MIKE - Webex" || selectedText == "NOVEMBER - Webex" || selectedText == "OSCAR - Webex" || selectedText == "PAPA - Webex" || selectedText == "QUEBEC - Webex" || selectedText == "SIERRA - Webex" || selectedText == "TANGO - Webex" || selectedText == "UNIFORM - Webex" || selectedText == "VICTOR - Webex" || selectedText == "WHISKEY - Webex" || selectedText == "XRAY - Webex" || selectedText == "YANKEE - Webex" || selectedText == "ZULU - Webex"){
 			
-			bridgeText = '<br>' + selectedText + ' has been opened for this issue.<br>' + g_form.getValue('incident.u_webex') + '';
+			bridgeText = '<br>' + selectedText.bold() + ' has been opened for this issue.<br>' + g_form.getValue('incident.u_webex') + '';
 		}
 		else{
 			bridgeLink = g_form.getValue('incident.u_webex');
