@@ -41,7 +41,7 @@ function TeamsText2(event) {
 	let addGroup = document.getElementById('incident.u_additional_group_to_notify_nonedit').innerHTML;
 	let boldPart = 'P' + g_form.getValue('incident.priority') + ' - ' + g_form.getValue('sys_readonly.incident.number');
 	if (addGroup == '') {addGroup = g_form.getValue('sys_display.incident.assignment_group');};
-	if (bridge != '') {
+	if (g_form.getValue('incident.u_webex') != '') {
 		let bridgeLink = '';
 		if(selectedText == "ALPHA - Webex" || selectedText == "BRAVO - Webex" || selectedText == "CHARLIE - Webex" || selectedText == "Delta - Webex" || selectedText == "ECHO - Webex" || selectedText == "FOXTROT - Webex" || selectedText == "GOLF - Webex" || selectedText == "HOTEL - Webex" || selectedText == "INDIA - Webex" || selectedText == "JULIET - Webex" || selectedText == "KILO - Webex" || selectedText == "LIMA - Webex" || selectedText == "MIKE - Webex" || selectedText == "NOVEMBER - Webex" || selectedText == "OSCAR - Webex" || selectedText == "PAPA - Webex" || selectedText == "QUEBEC - Webex" || selectedText == "SIERRA - Webex" || selectedText == "TANGO - Webex" || selectedText == "UNIFORM - Webex" || selectedText == "VICTOR - Webex" || selectedText == "WHISKEY - Webex" || selectedText == "XRAY - Webex" || selectedText == "YANKEE - Webex" || selectedText == "ZULU - Webex"){
 			
