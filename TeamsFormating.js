@@ -49,7 +49,7 @@ function TeamsText2(event) {
 		}
 		else{
 			bridgeLink = g_form.getValue('incident.u_webex');
-			bridgeText = '<br>' + selectedText + ' has been opened for this issue.<br><a href = "' + bridgeLink + '">' + bridgeLink + '</a>' + '';
+			bridgeText = '<br>' + selectedText.bold() + ' has been opened for this issue.<br><a href = "' + bridgeLink + '">' + bridgeLink + '</a>' + '';
 		}
 	};
 	let clip = boldPart.bold() + ' - ' + g_form.getValue('incident.short_description') + '<br>' + addGroup.bold() + ' has been paged.' + bridgeText;
